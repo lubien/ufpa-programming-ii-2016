@@ -2,15 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* Moves Logic */
+
 struct moves {
 	int player;
 	int x;
 	int y;
 	struct moves * next;
 };
-
-int board[3][3];
-struct moves * move_list = NULL;
 
 void add_move(struct moves ** move_list, int player, int x, int y) {
 	struct moves * current = *move_list;
@@ -29,12 +28,18 @@ void add_move(struct moves ** move_list, int player, int x, int y) {
 		new_node->next = ref;
 
 		*move_list = new_node;
-		/* while (current->next != NULL) { */
-		/* 	current = current->next; */
-		/* } */
-
-		/* current->next = new_node; */
 	}
+}
+
+/* Setup */
+
+int board[3][3];
+struct moves * move_list = NULL;
+
+/* Rendering Logic */
+
+void clearScreen() {
+	printf("\e[1;1H\e[2J");
 }
 
 void render_wall() {
@@ -63,11 +68,6 @@ void render_last_moves(struct moves * move_list) {
 		printf("-- No moves have been played --\n\n");
 	}
 }
-
-void clearScreen() {
-	printf("\e[1;1H\e[2J");
-}
-
 char renderSquare(int square) {
 	if (square == 0) {
 		return '.';
@@ -77,7 +77,7 @@ char renderSquare(int square) {
 	return 'X';
 }
 
-void render() {
+void renderField() {
 	clearScreen();
 
 	render_wall();
@@ -108,6 +108,8 @@ int validMove(int x, int y) {
 
 	return 1;
 }
+
+/* Controller logic */
 
 void askMove(int player) {
 	int x, y;
@@ -196,10 +198,10 @@ int someoneWon() {
 
 int main() {
 	do {
-		render();
+		renderField();
 
 		askMove(1);
-		render();
+		renderField();
 
 		if (someoneWon()) {
 			return 0;
