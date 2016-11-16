@@ -127,6 +127,7 @@ void askMove(int player) {
 		scanf("%i", &y);
 	} while (!validMove(x, y));
 
+	add_move(&move_list, player, x, y);
 	board[y - 1][x - 1] = player;
 }
 
