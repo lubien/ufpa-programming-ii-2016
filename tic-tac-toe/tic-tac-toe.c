@@ -136,49 +136,49 @@ int won(int p) {
 			board[0][0] == p &&
 			board[0][1] == p &&
 			board[0][2] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[1][0] == p &&
 			board[1][1] == p &&
 			board[1][2] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[2][0] == p &&
 			board[2][1] == p &&
 			board[2][2] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[0][0] == p &&
 			board[1][0] == p &&
 			board[2][0] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[0][1] == p &&
 			board[1][1] == p &&
 			board[2][1] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[0][2] == p &&
 			board[1][2] == p &&
 			board[2][2] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[0][0] == p &&
 			board[1][1] == p &&
 			board[2][2] == p
-		 ) {
+		) {
 		return 1;
 	} else if (
 			board[0][2] == p &&
 			board[1][1] == p &&
 			board[2][0] == p
-		 ) {
+		) {
 		return 1;
 	}
 
